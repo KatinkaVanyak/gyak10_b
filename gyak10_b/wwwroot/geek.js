@@ -1,9 +1,13 @@
-﻿var viccek;
+﻿window.onload = () => {
+    console.log("Oldal beöltve");
+}
 
-function letöltés() {
+var viccek;
+
+function letöltés = function () {
 
     fetch('/jokes.json')
-        .then(response => response.json())
+        .then(z => z.json())
         .then(data => letöltésBefejeződött(data));
 
 
@@ -15,11 +19,11 @@ function letöltésBefejeződött(d) {
     viccek = d;
     
 
-    for (var i = 0; i < d.length; i++) {
-        let elem = document.createElement("li");
+    for (var i = 0; i < viccek.length; i++) {
+        console.log(viccek[i].text);
+        let elem = document.createElement("div");
+        elem.innerHTML = viccek[i].text;
+        bodydiv.appendChild(elem);
     }
 }
 
-window.onload = () => {
-    letöltés();
-}

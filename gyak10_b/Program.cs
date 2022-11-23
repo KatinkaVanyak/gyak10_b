@@ -16,10 +16,13 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
-
+app.UseDefaultFiles();
 app.MapControllers();
+app.UseStaticFiles();
+
+app.UseAuthorization();
 
 app.Run();

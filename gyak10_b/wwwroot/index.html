@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <form id="jokesonyou">
+        <div>
+            <input  id="jokeSzöveg" type="text"/>
+
+        </div>
+        <button id="hozzaad">Felveszek egy új viccet</button>
+
+    </form>
+    <script>
+        document.getElementById("hozzad").addEventListener("click", () => {
+            let data = {
+                jokeSzöveg: document.getElementById(jokeSzöveg).value
+            }
+
+            fetch(
+                "api/jokes",
+                {
+                    method: 'POST',
+                    headers:
+                    {
+                        'Content-Type': 'appliaction/json'
+                    },
+                    body: JSON.stringify(data)
+                }
+
+            ).then(z => {
+                if (z.ok) {
+                    alert("ÜGyes")
+                } else {
+                    alert("Nem vagy ügyes")
+                }
+            })
+        })
+    </script>
+
+
+</body>
+</html>
