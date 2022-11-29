@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div id="eredmeny">
+
+    </div>
+
+    <script>        //adatok megjelenítése DOM-ban
+        fetch('/kerdesek/masmegoldas')
+            .then(responce => responce.json))
+            .then(data => KiIr(data));
+
+
+        function KiIr(lisa) {
+            console.log(lisa)
+            for (var i = 0; i < lisa.length; i++) {
+                let NewElem = document.createElement("div");
+                NewElem.innerText = lista[i];
+                document.getElementById("eredmeny").appendChild(NewElem);
+
+            }
+        }
+
+    </script>
+</body>
+</html>

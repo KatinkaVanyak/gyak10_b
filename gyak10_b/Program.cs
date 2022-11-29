@@ -20,9 +20,9 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseDefaultFiles();
-app.MapControllers();
+//app.MapControllers();
 app.UseStaticFiles();
-
-app.UseAuthorization();
+app.MapControllers();
+//app.UseAuthorization();
 
 app.Run();
