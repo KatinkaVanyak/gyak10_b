@@ -20,14 +20,24 @@ namespace gyak10_b.Controllers
 
 
         [HttpGet]
-        [Route("kerdesek/masmegoldas")]
-        public IActionResult mas()
+        [Route("kerdesek/{id}")]
+        public IActionResult mas(int id)
         {
             Models.HajosContext context = new HajosContext();
             var kerdes = from x in context.Questions
-                         select x.Question1;
-            return new JsonResult(kerdes);          //jsonként jelenít meg, nem lesz [] benne
+                         where x.QuestionId == id
+                         select x;
+
+            if (kerdes == null)
+            {
+                return BadRequest("Nincs ilyen sorszámú kérdés...");
+            }
+
+           
+            return new JsonResult(kerdes.FirstOrDefault());          //jsonként jelenít meg, nem lesz [] benne
         }
+        
+
 
     }
 }

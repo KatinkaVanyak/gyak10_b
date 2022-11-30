@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+   <div id="külső">
+       <div id="kérdés_szöveg">
+           Ide jön a kérdés szövege...
+       </div>
+       
+       <div id="középső">
+           <div id="válaszok">
+               <!-- ez maga a nagy konténer, amin belül lesznek felsorolva a kérdések -->
+               <div id="válasz1" class="kerdes kattintható">Első válasz</div>
+               <div id="válasz2" class="kerdes kattintható jó">Második válasz</div>
+               <div id="válasz3" class="kerdes kattintható rossz">Harmadik válasz</div>
+           </div>
+
+           <div id="kép">
+               <img id="kep1" src="https://kzgzdiag426.blob.core.windows.net/netcore/teszt-0050.jpg" />
+           </div>
+
+       </div>
+
+       <div id="vezérlő">
+           <div class="gomb kattintható">Előző kérdés</div>
+           <div class="gomb kattintható">Következő kérdés</div>
+       </div>
+
+   </div>
+
+
+
+    <style>
+        div
+        {
+            margin: 10px;
+            border: 1px solid green;
+        }
+
+        html,body{
+            height: 100%;
+        }
+
+        #külső
+        {
+            height: 100%;
+            flex-direction: column;
+            display: flex;
+            background-color: lightskyblue;
+        }
+        #középső{
+            display: flex;
+            flex-direction: row;
+            background-color: powderblue;
+            flex-grow:1;    /*ha lehet, csak akkor fog nőni*/
+
+        }
+
+        #válaszok{ flex-grow: 1; flex-shrink:1}
+        #kép
+        {
+            flex-shrink:0;
+            flex-grow:0;
+        }
+        #vezérlő {
+            background-color: powderblue;
+            display:flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        #kérdés_szöveg {
+            background-color: powderblue;
+        }
+
+        .gomb{padding: 20px; width: 80px;}
+
+        .kattintható:hover{
+            background-color: cadetblue;
+            color: aliceblue;
+        }
+
+    </style>
+</body>
+</html>
