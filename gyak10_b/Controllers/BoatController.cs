@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace gyak10_b.Controllers
 {
     //[Route("api/[controller]")]
-    //[ApiController]
+    [ApiController]
     public class BoatController : ControllerBase
     {
         [HttpGet]
@@ -18,7 +18,7 @@ namespace gyak10_b.Controllers
             return Ok(kerdes);
         }
 
-
+        
         [HttpGet]
         [Route("kerdesek/{id}")]
         public IActionResult mas(int id)
